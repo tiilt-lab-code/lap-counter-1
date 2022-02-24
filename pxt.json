@@ -1,5 +1,5 @@
 {
-    "name": "lap-counter-1",
+    "name": "lap-counter-1-high-throughput",
     "description": "",
     "dependencies": {
         "core": "*",

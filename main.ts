@@ -2,7 +2,10 @@ radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 1 && radio.receivedPacket(RadioPacketProperty.SignalStrength) > db_level) {
         radio.sendValue("serial", radio.receivedPacket(RadioPacketProperty.SerialNumber))
         total += 1
-        basic.showNumber(total)
+        if (total % 20 == 0) {
+            led.stopAnimation()
+            basic.showNumber(total)
+        }
     }
 })
 input.onButtonPressed(Button.A, function () {
@@ -10,7 +13,7 @@ input.onButtonPressed(Button.A, function () {
     basic.showNumber(db_level)
 })
 input.onButtonPressed(Button.AB, function () {
-    basic.showNumber(db_level)
+    basic.showNumber(total)
 })
 input.onButtonPressed(Button.B, function () {
     db_level += -5
